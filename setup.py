@@ -32,17 +32,17 @@ builtins.__erasplit_SETUP__ = True
 
 DISTNAME = "erasplit"
 DESCRIPTION = "Invariant Gradient Boosted Decision Tree Package - Era Splitting."
-with open("README.rst") as f:
+with open("README.md") as f:
     LONG_DESCRIPTION = f.read()
 MAINTAINER = "Tim DeLise"
 MAINTAINER_EMAIL = "tdelise@gmail.com"
 URL = "https://arxiv.org/abs/2309.14496"
-DOWNLOAD_URL = "pypi address"
+DOWNLOAD_URL = "https://github.com/jefferythewind/erasplit"
 LICENSE = "new BSD"
 PROJECT_URLS = {
-    "Bug Tracker": "https://github.com/scikit-learn/scikit-learn/issues",
-    "Documentation": "https://scikit-learn.org/stable/documentation.html",
-    "Source Code": "https://github.com/scikit-learn/scikit-learn",
+    "Bug Tracker": "https://github.com/jefferythewind/erasplit/issues",
+    "Documentation": "https://github.com/jefferythewind/erasplit",
+    "Source Code": "https://github.com/jefferythewind/erasplit",
 }
 
 # We can actually import a restricted version of erasplit that
@@ -337,6 +337,7 @@ def setup_package():
         project_urls=PROJECT_URLS,
         version=VERSION,
         long_description=LONG_DESCRIPTION,
+        long_description_content_type='text/markdown',
         classifiers=[
             "Intended Audience :: Science/Research",
             "Intended Audience :: Developers",

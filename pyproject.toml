@@ -38,3 +38,5 @@ exclude = '''
   | asv_benchmarks/env
 )/
 '''
+
+readme = "README.md"

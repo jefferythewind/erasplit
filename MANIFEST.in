@@ -4,7 +4,7 @@ recursive-include examples *
 recursive-include erasplit *.c *.cpp *.h *.pyx *.pxd *.pxi *.tp
 recursive-include erasplit/datasets *.csv *.csv.gz *.rst *.jpg *.txt *.arff.gz *.json.gz
 include COPYING
-include README.rst
+include README.md
 include pyproject.toml
 include erasplit/externals/README
 include erasplit/svm/src/liblinear/COPYRIGHT
