@@ -8,23 +8,12 @@ Era Splitting Paper: https://arxiv.org/abs/2309.14496
 pip install erasplit
 ```
 
-#Example Usage
+# Example Usage
 
 ```python
 
 from erasplit.ensemble import EraHistGradientBoostingRegressor
 
-model = EraHistGradientBoostingRegressor( 
-    early_stopping=False, #boolean, if True validation set is taken from training set.
-    max_iter=5000, 
-    max_depth=5, 
-    learning_rate=.01, 
-    colsample_bytree=.1, 
-    max_leaf_nodes=32, 
-    #gamma=1, #for era splitting
-    blama=1,  #for directional era splitting with erasplit tiebreaker
-    #vanna=1,  #for original splitting criterion
-)
 model = EraHistGradientBoostingRegressor(
     early_stopping=False,
     n_jobs = 2,  
