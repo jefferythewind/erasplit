@@ -8,6 +8,47 @@ Era Splitting Paper: https://arxiv.org/abs/2309.14496
 pip install erasplit
 ```
 
+#Example Usage
+
+```python
+
+from erasplit.ensemble import EraHistGradientBoostingRegressor
+
+model = EraHistGradientBoostingRegressor( 
+    early_stopping=False, #boolean, if True validation set is taken from training set.
+    max_iter=5000, 
+    max_depth=5, 
+    learning_rate=.01, 
+    colsample_bytree=.1, 
+    max_leaf_nodes=32, 
+    #gamma=1, #for era splitting
+    blama=1,  #for directional era splitting with erasplit tiebreaker
+    #vanna=1,  #for original splitting criterion
+)
+model = EraHistGradientBoostingRegressor(
+    early_stopping=False,
+    n_jobs = 2,  
+    colsample_bytree = 1, #float, between 0 and 1 inclusive, random sample of columns are used to grow each tree
+    max_bins = cfg['max_bin'], # int, max number of bins
+    max_depth = cfg['max_depth'], #int, max depth of each tree
+    max_leaf_nodes = cfg['num_leaves'], #int, maximum leaves in each tree 
+    min_samples_leaf = cfg['min_child_samples'], #int, minimum data in a leaf
+    max_iter = cfg['n_estimators'], #int, number of boosting rounds (trees)
+    l2_regularization = cfg['reg_lambda'], #float, between 0 and 1
+    learning_rate = cfg['learning_rate'], #float (exclusive?), between 0 and 1
+    blama=1, # Directional Era Splitting Weight (BEGINNERS ALWAYS SET THIS TO 1!)
+    min_agreement_threshold=0, #float, between 0 and 1 minimum agreement in direction of split over the eras of data
+    verbose=0, #int, 
+)
+
+model.fit(
+    X,
+    Y,
+    eras # must be a vector the same length as X and Y, integers, where each value designates the era (or environment) of each data point
+)
+
+```
+
 # Example Implementation w/ Numerai Data
 
 ```python
