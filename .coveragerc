@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = erasplit
+parallel = True
+omit =
+    */erasplit/externals/*
+    */erasplit/_build_utils/*
+    */benchmarks/*
+    **/setup.py
