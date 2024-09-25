@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: erasplit
-Version: 1
+Version: 1.0.4
 Summary: Invariant Gradient Boosted Decision Tree Package - Era Splitting.
 Home-page: https://arxiv.org/abs/2309.14496
 Download-URL: https://github.com/jefferythewind/erasplit
@@ -37,6 +37,7 @@ Requires-Dist: numpy>=1.17.3
 Requires-Dist: scipy>=1.3.2
 Requires-Dist: joblib>=1.1.1
 Requires-Dist: threadpoolctl>=2.0.0
+Requires-Dist: numpy==1.26.4
 Provides-Extra: examples
 Requires-Dist: matplotlib>=3.1.3; extra == "examples"
 Requires-Dist: scikit-image>=0.16.2; extra == "examples"

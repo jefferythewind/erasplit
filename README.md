@@ -2,19 +2,10 @@ This is the official code base for Era Splitting. Using this repository you can 
 
 Era Splitting Paper: https://arxiv.org/abs/2309.14496
 
-# Installation
-
-## Clone the Repo
+# Installation via Pip
 
 ```
-git clone --single-branch --branch era_splitting-tiebreaker https://github.com/jefferythewind/scikit-learn-erasplit.git
-```
-
-## Install via Pip
-
-```
-cd scikit-learn-erasplit/
-pip install .
+pip install erasplit
 ```
 
 # Example Implementation w/ Numerai Data

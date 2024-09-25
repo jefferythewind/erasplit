@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 # 'X.Y.dev0' is the canonical version of 'X.Y.dev'
 #
 # __version__ = "1.3.dev0"
-__version__ = "1"
+__version__ = "1.0.4"
 
 
 # On OSX, we can get a runtime error due to multiple OpenMP libraries loaded
@@ -82,6 +82,7 @@ else:
 
     __all__ = [
         "ensemble",
+        "externals",
         # Non-modules:
         "get_config",
         "set_config",
