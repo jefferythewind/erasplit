@@ -1,7 +1,16 @@
 This is the official code base for Era Splitting. Using this repository you can install and run the EraHistGradientBoostingRegressor with the new **era splitting**, **directional era splitting**, or original criterion implemented via simple arguments.
 
-Era Splitting Paper: https://arxiv.org/abs/2309.14496
+This is a forked extension of sklearn's HistGradientBoostingRegressor, the supervised learning algorithm Gradient Boosted Decision Trees (GBDTs), but with new splitting criteria aimed at learning _invariant_ predictors. This version accepts an additional argument to the `.fit` function. This argument is called `eras`, it is a 1D integer vector the same length as X (input) and Y (target) data. The integer values associated with each data point indicate which era (or domain or environment) the data point came from. This algo and similar OOD learning algorithms utilized this era-wise (environmental) information to find better decision rules. 
 
+See the WILDS (https://wilds.stanford.edu/) project for more info on this kind of domain generalization problem. The working hypothesis of this research is that financial data also exhibits this kind of domain, environmental shift in the data distributions over time. Each time period is called an era.
+
+# Era Splitting Paper
+https://arxiv.org/abs/2309.14496
+
+# Source Code and Issue Tracking
+https://github.com/jefferythewind/erasplit
+
+`eraas
 # Installation via Pip
 
 ```
