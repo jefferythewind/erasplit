@@ -10,7 +10,6 @@ https://arxiv.org/abs/2309.14496
 # Source Code and Issue Tracking
 https://github.com/jefferythewind/erasplit
 
-`eraas
 # Installation via Pip
 
 ```
