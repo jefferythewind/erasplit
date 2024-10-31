@@ -35,6 +35,7 @@ jobs:
           cibuildwheel --output-dir wheelhouse
         env:
           CIBW_PLATFORM: ${{ matrix.os == 'macos-latest' && 'macos' || matrix.os }}  # Set macos for macOS
+          CIBW_ARCHS: ${{ matrix.os == 'macos-latest' && 'arm64,x86_64' || 'auto' }}  # Enable both architectures on macOS
           CIBW_BUILD: cp${{ matrix.python-version }}*
 
       - name: Upload to PyPI
