@@ -28,9 +28,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install setuptools wheel
-          pip install numpy scipy cython  # Install numpy first to avoid ImportError
+          pip install numpy scipy cython cibuildwheel  # Install numpy first to avoid ImportError
       - name: Build wheel
-        run: python setup.py bdist_wheel
+        run: |
+            python -m cibuildwheel --output-dir dist
       - name: Upload to PyPI
         if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Restrict to Linux
         uses: pypa/gh-action-pypi-publish@release/v1
