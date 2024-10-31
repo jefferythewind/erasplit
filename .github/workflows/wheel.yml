@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
       
     strategy:
       matrix:
@@ -31,7 +32,7 @@ jobs:
       - name: Build wheel
         run: python setup.py bdist_wheel
       - name: Upload to PyPI
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Restrict to Linux
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
