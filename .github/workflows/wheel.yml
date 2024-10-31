@@ -31,7 +31,7 @@ jobs:
           pip install numpy scipy cython cibuildwheel  # Install numpy first to avoid ImportError
       - name: Build wheel
         run: |
-            python -m cibuildwheel --output-dir dist
+            python -m cibuildwheel --output-dir dist --build-verbosity 2
       - name: Upload to PyPI
         if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Restrict to Linux
         uses: pypa/gh-action-pypi-publish@release/v1
