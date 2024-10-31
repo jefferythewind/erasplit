@@ -12,10 +12,10 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
-      
+
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]  # Include macOS if needed
         python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
@@ -24,15 +24,21 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+
+      - name: Install cibuildwheel and dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install setuptools wheel
-          pip install numpy scipy cython  # Install numpy first to avoid ImportError
-      - name: Build wheel
-        run: python setup.py bdist_wheel
+          pip install cibuildwheel numpy scipy cython  # Install cibuildwheel along with necessary build dependencies
+
+      - name: Build wheels with cibuildwheel
+        run: |
+          cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_PLATFORM: ${{ matrix.os }}
+          CIBW_BUILD: cp${{ matrix.python-version.replace('.', '') }}*
+
       - name: Upload to PyPI
-        if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Restrict to Linux
+        if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Only upload once from Linux
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
