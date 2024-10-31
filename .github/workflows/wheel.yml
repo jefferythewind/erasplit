@@ -35,7 +35,7 @@ jobs:
           cibuildwheel --output-dir wheelhouse
         env:
           CIBW_PLATFORM: ${{ matrix.os }}
-          CIBW_BUILD: cp${{ matrix.python-version.replace('.', '') }}*
+          CIBW_BUILD: cp${{ matrix.python-version }}*
 
       - name: Upload to PyPI
         if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Only upload once from Linux
