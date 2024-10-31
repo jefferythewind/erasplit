@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]  # Include macOS if needed
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
@@ -28,17 +28,17 @@ jobs:
       - name: Install cibuildwheel and dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install cibuildwheel numpy scipy cython  # Install cibuildwheel along with necessary build dependencies
+          pip install cibuildwheel numpy scipy cython
 
       - name: Build wheels with cibuildwheel
         run: |
           cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_PLATFORM: ${{ matrix.os }}
+          CIBW_PLATFORM: ${{ matrix.os == 'macos-latest' && 'macos' || matrix.os }}  # Set macos for macOS
           CIBW_BUILD: cp${{ matrix.python-version }}*
 
       - name: Upload to PyPI
-        if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'  # Only upload once from Linux
+        if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
