@@ -361,7 +361,11 @@ def setup_package():
         ],
         cmdclass=cmdclass,
         python_requires=python_requires,
-        # install_requires=min_deps.tag_to_packages["install"] + ["numpy==1.26.4"],
+        install_requires=min_deps.tag_to_packages["install"] + ["numpy==1.26.4"] +[
+            "numpy>=1.17.3,<2.0.0",
+            "scipy>=1.3.2",
+            "Cython>=0.29.33,<=3.0.12",
+        ],
         package_data={"": ["*.csv", "*.gz", "*.txt", "*.pxd", "*.rst", "*.jpg"]},
         zip_safe=False,  # the package can run out of an .egg file
         extras_require={
