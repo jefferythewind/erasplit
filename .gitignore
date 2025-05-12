@@ -98,3 +98,5 @@ erasplit/metrics/_pairwise_distances_reduction/_middle_term_computer.pxd
 erasplit/metrics/_pairwise_distances_reduction/_middle_term_computer.pyx
 erasplit/metrics/_pairwise_distances_reduction/_radius_neighbors.pxd
 erasplit/metrics/_pairwise_distances_reduction/_radius_neighbors.pyx
+
+*.egg-info/

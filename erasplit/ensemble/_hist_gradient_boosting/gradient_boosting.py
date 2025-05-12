@@ -3479,7 +3479,7 @@ class EraHistGradientBoostingRegressor(RegressorMixin, BaseEraHistGradientBoosti
         boltzmann_alpha=0.0,
         colsample_bytree=1.0,
         gamma=0.,
-        blama=0.,
+        blama=1.,
         era_boosting=False,
         vanna=0.,
         gain_debug=False,

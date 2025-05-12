@@ -1,8 +1,0 @@
-cython:
-- erasplit/**/*.pyx
-- erasplit/**/*.pxd
-- erasplit/**/*.pxi
-# Tempita templates
-- erasplit/**/*.pyx.tp
-- erasplit/**/*.pxd.tp
-- erasplit/**/*.pxi.tp
